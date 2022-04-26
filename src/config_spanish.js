@@ -24,10 +24,10 @@ export const AG_GRID_LOCALE_ES = {
     inRangeEnd: 'to',
 
     // Text Filter
-    contains: 'Contains',
-    notContains: 'Not contains',
-    startsWith: 'Starts with',
-    endsWith: 'Ends with',
+    contains: 'Contiene',
+    notContains: 'No contiene',
+    startsWith: 'Empieza con',
+    endsWith: 'Termina con',
 
     // Date Filter
     dateFormatOoo: 'yyyy-mm-dd',

@@ -13,6 +13,8 @@
                 </div>
   <ag-grid-vue
     style="width: 100%; height: 600px"
+    :rowClass="rowClass"
+    :getRowClass="getRowClass"
     class="ag-theme-alpine"
     :columnDefs="columnDefs"
     :rowData="rowData.value"
@@ -54,7 +56,16 @@ export default {
       return params.value.toLocaleString();
     };
     
-   
+    // all rows assigned CSS class 'my-green-class'
+    const rowClass = 'my-green-class';
+
+    // all even rows assigned 'my-shaded-effect'
+    const getRowClass = params => {
+        if (params.node.rowIndex % 2 === 0) {
+            return 'my-shaded-effect';
+        }
+    };
+
 
     //Exportar a Csv
      const onBtnExport = () =>{
@@ -140,15 +151,24 @@ export default {
       paginationPageSize,
       onPageSizeChanged,
       check,
-      localeText
+      localeText,
+      rowClass,
+      getRowClass
     };
   },
 };
 </script>
 
 <style>
-@import "~ag-grid-community/dist/styles/ag-grid.css";
-@import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
-
+/* @import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-alpine.css"; */
+/* .ag-row-odd{
+  background: orange !important;
+}
+.ag-paging-panel{
+  background: red;
+  display: flex;
+  justify-content: center;
+} */
 
 </style>
